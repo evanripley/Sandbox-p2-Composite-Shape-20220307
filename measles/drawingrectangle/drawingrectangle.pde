@@ -1,4 +1,4 @@
-size(300,300); //Display Geometry: (Orientations) Square, Landsacpe, Portrait
+size(700,500); //Display Geometry: (Orientations) Square, Landsacpe, Portrait
 //fullScreen(); //displayWidth, displayHeight
 println("Canvas size",width,height);
 println("Display", "Width:", displayWidth, "Height:", displayHeight);
@@ -7,4 +7,12 @@ int x = width*1/4, y = height*1/4, rectWidth = width*1/2, rectHeight = height*1/
 background(50);
 //background as color RGB, random (a,b)
 background(color(random(255),random(255),random(255)) );
+strokeWeight(thick);
+stroke(yellow);
+fill(purple);
 rect(x,y,rectWidth,rectHeight);
+//reset to defaults
+fill(whiteReset);
+stroke(blackReset);
+strokeWeight(strokeReset);
+//End of program
