@@ -2,7 +2,7 @@
 int x = width*1/4, y = height*1/4, rectWidth = width*1/2, rectHeight = height*1/2;
 int backgroundBlue=0;
 int strokeReset=1;
-int thin=width*1/50, thick=2*thin;
+int thin, thick=2*thin;
 color strokeColor, fillColor;
 color yellow=#FFEF3E, purple=#B43EFF, whiteReset=#FFFFFF, blackReset=#000000;
 //Color design design must limit as much blue as possible... Notice purple
@@ -13,6 +13,12 @@ void setup()
 {
   size(700, 500); //Display Geometry: (Orientations) Square, Landsacpe, Portrait
   //fullScreen(); //displayWidth, displayHeight
+  //Populations
+  x = width*1/4;
+  y = height*1/4;
+  rectWidth = width*1/2;
+  rectHeight = height*1/2;
+  thick=2*thin;
   println("Canvas size", width, height);
   println("Display", "Width:", displayWidth, "Height:", displayHeight);
 } //end setup
