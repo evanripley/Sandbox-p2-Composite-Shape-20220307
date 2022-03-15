@@ -1,69 +1,71 @@
 //Global Variables
-int x = width*1/4, y = height*1/4, rectWidth = width*1/2, rectHeight = height*1/2;
-int backgroundBlue=0;
+int x, y, rectWidth, rectHeight;
+int backgroundBlue;
 int strokeReset=1;
-int thin, thick=2*thin;
-color strokeColor, fillColor;
-color yellow=#FFEF3E, purple=#B43EFF, whiteReset=#FFFFFF, blackReset=#000000;
-//Color design design must limit as much blue as possible... Notice purple
-color yellowNightMode=#F8FC00, purpleNightMode=#FA0096; //No blue light for the color shade
+int thin, thick;
+color strokeColour, fillColour;
+color yellow=#F8FC03, purple=#FA00F6, whiteReset=#FFFFFF, blackReset=#000000;
+color yellowNightMode=#F8FC00, purpleNightMode=#FA0096; //No blue light for the colour shade
 Boolean nightMode=false; //Daytime is false
 //
-void setup() 
+void setup()
 {
-  size(700, 500); //Display Geometry: (Orientations) Square, Landsacpe, Portrait
+  size(700, 500); //Display Geometry
   //fullScreen(); //displayWidth, displayHeight
-  //Populations
+  //Population
   x = width*1/4;
   y = height*1/4;
   rectWidth = width*1/2;
   rectHeight = height*1/2;
-  thick=2*thin;
-  println("Canvas size", width, height);
-  println("Display", "Width:", displayWidth, "Height:", displayHeight);
-} //end setup
+  thin = width*1/50;
+  thick = 2*thin;
+  println("Canvas Size", width, height);
+  println("Display", "width: ", displayWidth, " height: ", displayHeight);
+}//End setup
 //
-void draw() 
+void draw()
 {
-  // Background as gray scale, 0-255 (notice 256 numbers)
+  // Background as gray scale, 0-255 (notice 256 numbers's)
   background(50);
-  //background as color RGB, random (a,b)
-  //NightMode means background cant have blue //Change random for NightMode
+  // Background as colour, RGB, random(a,b)
+  // Night Mode means background cannot have blue // change randome for night mode
   //
-   if (nightMode=true) //NightMode Choices
- {
- backgroundBlue=0;
- strokeColor= yellowNightMode;
- fillColor = purpleNightMode;
- } else 
- {
- backgroundBlue= int(random(255) );
- strokeColor = yellow;
- fillColor = purple;
- println("Nightmode is off");
- } //End NightMode
- background(color(random(255),random(255),backgroundBlue) );
- strokeWeight(thick);
- stroke(strokeColor); //yellowNightMode, yellow
- fill(fillColor); //purpleNightMode, purple
- rect(x,y,rectWidth,rectHeight);
- //reset to defaults
- fill(whiteReset);
- stroke(blackReset);
- strokeWeight(strokeReset);
-} //end draw
+  if ( nightMode==true ) //Night Mode Choices
+  {
+    backgroundBlue = 0;
+    strokeColour = yellowNightMode;
+    fillColour = purpleNightMode;
+    println("Night Mode is working");
+  } else
+  {
+    backgroundBlue = int( random(255) );
+    strokeColour = yellow;
+    fillColour = purple;
+    println("Night Mode is off");
+  } //End Night Mode
+  //
+  background( color(random(0, 255), random(255), backgroundBlue) );
+  strokeWeight(thick);
+  stroke(strokeColour);
+  fill(fillColour);
+  rect(x, y, rectWidth, rectHeight);
+  //rest to defaults
+  fill(whiteReset);
+  stroke(blackReset);
+  strokeWeight(strokeReset);
+}//End draw
 //
-void keyPressed() 
+void keyPressed()
 {
-  if (key == 'N' || key == 'n') nightMode = true;
-  if (key == CODED && keyCode == LEFT) nightMode = false;
-} //end key
+  if ( key == 'N' || key == 'n' ) nightMode = true;
+  if ( key == CODED && keyCode == LEFT) nightMode = false;
+}//End keyPressed
 //
-void mousePressed() 
+void mousePressed()
 {
-   if (mouseButton == LEFT) nightMode = true;
-  if (mouseButton == RIGHT) nightMode = false;
-} //end mouse
+  if (mouseButton == LEFT) nightMode=true;
+  if (mouseButton == RIGHT) nightMode=false;
+}//End mousePressed
 /*
  //End of program
  */
